@@ -1,14 +1,51 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="color2">
     <ion-title>
-      Ionic Blank
+      Dziennik
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addItem()">
+        <ion-icon name="add"></ion-icon>
+        </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+  <ion-list>
+    <ion-card class="item"  *ngFor="let item of items | async">
+      <ion-item>
+        <h2>{{item.title}}</h2>
+        <small>{{item.date}}</small>
+        <p> {{item.summary}} </p>
+
+        <section class="multiples">
+          <h3>Zrobione</h3>
+          <ion-chip *ngFor="let zrobione of item.done" padding-left padding-right margin-right>
+            {{ zrobione.name }}
+          </ion-chip>
+        </section>
+
+        <section class="multiples">
+          <h3>Planowane</h3>
+          <ion-chip *ngFor="let plan of item.todo" padding-left padding-right margin-right>
+            {{ plan.name }}
+          </ion-chip>
+        </section>
+
+        <div class="manage-record" padding>
+          <button ion-button text-center color="color2" (click)="editItem(item)">
+          Edycja
+          </button>
+
+          <button ion-button text-center color="color2" (click)="deleteItem(item)">
+          Usuń
+          </button>
+
+        </div>
+      </ion-item>
+    </ion-card>
+  </ion-list>
+
 </ion-content>
