@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar color="color2">
+    <ion-title>
+     Tytul: {{ itemTitle }}
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button color="color2" (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <form [formGroup]="form" (ngSubmit)="saveItem(form.value)">
+
+    <ion-item-divider color="light">
+      <div *ngIf="!isEditabled">
+        Dodaj nowa pozycje
+      </div>
+      <div *ngIf="isEditabled">
+        Modyfikuj pozycje
+      </div>
+    </ion-item-divider>
+
+    <ion-item>
+      <ion-label stacked>Tutul</ion-label>
+      <ion-input type="text" formControlName="title" [(ngModel)]="itemTitle"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Podsumowanie</ion-label>
+      <ion-input type="text" formControlName="summary" [(ngModel)]="itemSummary"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <input type="hidden" name="itemId">
+
+        <button ion-button block color="color2" text-center padding-top padding-bottom [disabled]="!form.valid">
+          <div *ngIf="!isEditabled">
+            Dodaj nowa pozycje
+          </div>
+
+            <div *ngIf="isEditabled">
+              Aktualizuj pozycje
+            </div>
+        </button>
+    </ion-item>
+
+  </form>
+
+</ion-content>
