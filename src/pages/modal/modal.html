@@ -36,6 +36,41 @@
     </ion-item>
 
     <ion-item>
+      <ion-label stacked>Ocena</ion-label>
+      <ion-input type="text" formControlName="rating" [(ngModel)]="itemRating"></ion-input>
+    </ion-item>
+
+        <ion-item>
+      <ion-label stacked>zrobic:</ion-label>
+      <ion-select formControlName="todo" multiple="true" [(ngModel)]="itemTodo">
+        <ion-option value="Action">Action</ion-option>
+        <ion-option value="Comedy">Comedy</ion-option>
+        <ion-option value="Document">Document</ion-option>
+        <ion-option value="Historical">Historical</ion-option>
+        <ion-option value="Romance">Romance</ion-option>
+        <ion-option value="Science Fiction">Science Fiction</ion-option>
+        <ion-option value="Thriller">Thriller</ion-option>
+        <ion-option value="Zombie">Zombie</ion-option>
+        <ion-option value="War">War</ion-option>
+      </ion-select>
+    </ion-item>
+
+           <ion-item>
+      <ion-label stacked>Zrobilem:</ion-label>
+      <ion-select formControlName="done" multiple="true" [(ngModel)]="itemDone">
+        <ion-option value="aaa">aaa</ion-option>
+        <ion-option value="bbb">bbb</ion-option>
+        <ion-option value="Document">Document</ion-option>
+        <ion-option value="Historical">Historical</ion-option>
+        <ion-option value="Romance">Romance</ion-option>
+        <ion-option value="Science Fiction">Science Fiction</ion-option>
+        <ion-option value="Thriller">Thriller</ion-option>
+        <ion-option value="Zombie">Zombie</ion-option>
+        <ion-option value="War">War</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
       <input type="hidden" name="itemId">
 
         <button ion-button block color="color2" text-center padding-top padding-bottom [disabled]="!form.valid">

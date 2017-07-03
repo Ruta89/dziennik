@@ -14,24 +14,32 @@
 <ion-content padding>
 
   <ion-list>
+
     <ion-card class="item"  *ngFor="let item of items | async">
+
       <ion-item>
         <h2>{{item.title}}</h2>
         <small>{{item.date}}</small>
         <p> {{item.summary}} </p>
 
         <section class="multiples">
-          <h3>Zrobione</h3>
+          <span>Zrobione:</span>
           <ion-chip *ngFor="let zrobione of item.done" padding-left padding-right margin-right>
             {{ zrobione.name }}
           </ion-chip>
         </section>
 
         <section class="multiples">
-          <h3>Planowane</h3>
+          <span>Planowane:</span>
           <ion-chip *ngFor="let plan of item.todo" padding-left padding-right margin-right>
             {{ plan.name }}
           </ion-chip>
+        </section>
+         <section>
+          <span>Ocena: 
+          <ion-chip padding-left padding-right margin-right>
+            {{ item.rating }}
+          </ion-chip></span>
         </section>
 
         <div class="manage-record" padding>
@@ -45,7 +53,9 @@
 
         </div>
       </ion-item>
+      
     </ion-card>
+
   </ion-list>
 
 </ion-content>
