@@ -22,7 +22,7 @@
         <small>{{item.date}}</small>
         <p> {{item.summary}} </p>
 
-        <section class="multiples">
+        <!-- <section class="multiples">
           <span>Zrobione:</span>
           <ion-chip *ngFor="let zrobione of item.done" padding-left padding-right margin-right>
             {{ zrobione.name }}
@@ -36,11 +36,11 @@
           </ion-chip>
         </section>
          <section>
-          <span>Ocena: 
+          <span>Ocena:
           <ion-chip padding-left padding-right margin-right>
             {{ item.rating }}
           </ion-chip></span>
-        </section>
+        </section> -->
 
         <div class="manage-record" padding>
           <button ion-button text-center color="color2" (click)="editItem(item)">
@@ -53,7 +53,7 @@
 
         </div>
       </ion-item>
-      
+
     </ion-card>
 
   </ion-list>

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, ModalController, Platform } from 'ionic-angular';
-
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
@@ -8,7 +7,8 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
   templateUrl: 'home.html'
 })
 export class HomePage {
-  items: FirebaseListObservable<any[]>;
+  // items: FirebaseListObservable<any[]>;
+  items;
 
   constructor(public navCtrl: NavController,
     public afDB: AngularFireDatabase,
@@ -19,9 +19,10 @@ export class HomePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad');
-    this.platform.ready().then(() => {
-      this.items = this.afDB.list('/items');
-    });
+    // this.platform.ready().then(() => {
+    //   this.items = this.afDB.list('/dziennik');
+    // });
+    this.items = this.afDB.list('/dziennik');
   }
 
   addItem() {
@@ -35,7 +36,7 @@ export class HomePage {
     modal.present();
   }
 
-  deleteItem(item: any) {
+  deleteItem(item) {
     this.items.remove(item);
   }
 
